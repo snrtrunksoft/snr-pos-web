@@ -1,0 +1,154 @@
+.cart-page {
+    padding: 20px;
+  }
+  
+  .available-items, .cart-items {
+    margin-bottom: 20px;
+  }
+  
+  .item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .item h4 {
+    margin: 0;
+  }
+  
+  .item p {
+    margin: 5px 0;
+  }
+  
+  .item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .item button:hover {
+    background-color: #0056b3;
+  }
+  
+  .checkout-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .checkout-button:hover {
+    background-color: #0056b3;
+  }
+
+  .cart-page {
+    padding: 20px;
+  }
+  
+  .available-items, .cart-items {
+    margin-bottom: 20px;
+  }
+  
+  .checkout-button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .checkout-button-container button {
+    padding: 10px 20px;
+  }
+
+  /* This CSS will specifically target the Ant Design card when hovered */
+/* This CSS will specifically target the Ant Design card when hovered */
+
+  
+  .ant-card:hover {
+    border-color: rgba(151, 152, 153, 0.5); /* Change border color on hover */
+    box-shadow: 0 4px 8px rgba(2, 114, 242, 0.2); /* Add shadow on hover */
+    transform: scale(1.02); /* Slightly enlarge the card on hover */
+  }
+
+  /* This CSS will specifically target the Ant Design card and only change the background color on hover */
+.ant-card {
+    transition: background-color 0.3s ease;
+  }
+
+  .item-type-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0px;
+  }
+  
+  .cart-itemType-card.selected {
+    border-color: #1890ff;
+  }
+  
+  .cart-itemType-card:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .quantity-selector {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  
+  .quantity-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .quantity-circle.selected {
+    background-color: #0887fec1; /* Green background for selected circle */
+    color: white;
+  }
+  
+  .quantity-circle:hover {
+    background-color: #0887fec1; /* Change color on hover */
+    color: white;
+  }
+
+  .spicelevel-rounded {
+    border-radius: 5px;
+    width: 75px;
+    height: 25px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .spicelevel-rounded.selected {
+    background-color: #0887fe; /* Green background for selected circle */
+    color: white;
+  }
+  
+  .spicelevel-rounded:hover {
+    background-color: #188fffb7; /* Change color on hover */
+    color: white;
+  }
+
+  .shadow-card {
+    border-color: rgba(24, 24, 25, 0.2);
+    box-shadow: 0px 5px 10px rgba(1, 135, 213, 0.10); /* Add a slight shadow effect */
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .shadow-card:hover {
+    box-shadow: 0px 8px 20px rgba(2, 191, 59, 0.15); /* Slightly stronger shadow on hover */
+  }
+  

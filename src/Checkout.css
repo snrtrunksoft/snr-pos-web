@@ -1,0 +1,20 @@
+.checkout-page {
+    padding: 20px;
+  }
+  
+  .summary {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+  
+  .complete-checkout-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .complete-checkout-button:hover {
+    background-color: #218838;
+  }
