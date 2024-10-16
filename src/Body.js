@@ -187,25 +187,11 @@ const Body = ({ cartItems, setCartItems }) => {
         ))}
       </Row>
 
-      <h2>Your Cart</h2>
-      <Row gutter={[16, 16]} className="cart-items">
-        {cartItems.map((item) => (
-          <Col key={item.id} xs={24} sm={12} md={8} lg={6}>  
-            <Card title={item.name} bordered={true}>
-              <p>Price: ${item.price}</p>
-              <p>Quantity: {item.quantity}</p>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-
-      {cartItems.length > 0 && (
-        <div className="checkout-button-container">
+      <div className="checkout-button-container">
           <Button type="primary" onClick={proceedToCheckout}>
             Proceed to Checkout
           </Button>
         </div>
-      )}
     </div>
   );
 };

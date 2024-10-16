@@ -10,7 +10,7 @@ import {
 
 const { Title } = Typography;
 
-function Header({ resetCart }) {
+function Header({ resetCart, cartCount }) {
   const navigate = useNavigate();
 
   const handleStartOver = () => {
@@ -18,7 +18,10 @@ function Header({ resetCart }) {
     navigate('/'); // Navigate back to the home screen
   };
 
-  const [cartCount, setCartCount] = useState(1); 
+
+  const proceedToCheckout = () => {
+    navigate('/checkout');
+  };
 
   return (
     <header className="App-header">
@@ -29,7 +32,7 @@ function Header({ resetCart }) {
       <div className="header-buttons">
         {/* Shopping Cart Button */}
         <Badge count={cartCount} overflowCount={99} offset={[10, 0]}>
-          <Button icon={<ShoppingCartOutlined />} size="default"></Button>
+          <Button icon={<ShoppingCartOutlined /> } onClick={proceedToCheckout} size="default"></Button>
         </Badge>
 
         {/* Start Over Button */}

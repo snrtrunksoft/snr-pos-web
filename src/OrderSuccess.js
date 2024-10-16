@@ -1,23 +1,30 @@
-const { createRoot } = ReactDOM;
+import React from 'react';
+import { Button, Result } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-const {  Button, Result  } = antd;
+const OrderSuccess = () => {
+  const navigate = useNavigate();
 
-const OrderSucccss = () => {
-return (
+  const handleClose = () => {
+    navigate('/');
+     // Navigate back to the home screen
+  };
+
+  return (
     <Result
-    status="success"
-    title="Successfully Purchased Cloud Server ECS!"
-    subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
-    extra={[
-      <Button type="primary" key="console">
-        Go Console
-      </Button>,
-      <Button key="buy">Buy Again</Button>,
-    ]}
-  />
+      status="success"
+      title="Successfully Placed new Order"
+      subTitle="Order number is: 176289. Estimated wait time for Order: 10-15 minutes. Thank you.!!"
+      extra={[
+        <Button type="primary" key="console" onClick={() => handleClose()}>
+          Close
+        </Button>,
+        <Button key="buy" onClick={() => navigate('/update-order')}>
+          Make Updates
+        </Button>,
+      ]}
+    />
   );
 };
-const ComponentDemo = OrderSucccss;
 
-
-createRoot(mountNode).render(<ComponentDemo />);
+export default OrderSuccess;
