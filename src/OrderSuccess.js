@@ -2,19 +2,20 @@ import React from 'react';
 import { Button, Result } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
-const OrderSuccess = () => {
+const OrderSuccess = ({resetCart, status, title, subTitle}) => {
   const navigate = useNavigate();
 
   const handleClose = () => {
+    // resetCart(); // Reset the cart
     navigate('/');
      // Navigate back to the home screen
   };
 
   return (
     <Result
-      status="success"
-      title="Successfully Placed new Order"
-      subTitle="Order number is: 176289. Estimated wait time for Order: 10-15 minutes. Thank you.!!"
+      status={status}
+      title={title}
+      subTitle={subTitle}
       extra={[
         <Button type="primary" key="console" onClick={() => handleClose()}>
           Close

@@ -27,3 +27,32 @@
 .complete-checkout-button:hover {
   background-color: #218838;
 }
+
+.checkout-container {
+  display: flex;
+}
+
+.cart-column {
+  border-right: 2px solid #e0e0e0; /* Adds vertical line */
+  padding-right: 16px;
+}
+
+.card-details {
+  padding-left: 16px;
+}
+
+.checkout-page {
+  padding: 20px;
+}
+
+.complete-checkout-button {
+  margin-top: 20px;
+}
+
+.card-form {
+  margin-top: 20px;
+}
+
+.submit-payment-button {
+  margin-top: 16px;
+}
