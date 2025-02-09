@@ -6,6 +6,7 @@ import './Body.css';  // Import the CSS for styling
 
 const Body = ({ cartItems, setCartItems }) => {
   const navigate = useNavigate();
+  // const [itemTypes, setItemTypes] = useState([]); // Set state for item categories
 
   // Define the item types for the horizontal grid
   const itemTypes = [
@@ -14,6 +15,14 @@ const Body = ({ cartItems, setCartItems }) => {
     { id: 'vegetables', name: 'Vegetables' },
     { id: 'beverages', name: 'Beverages' },
   ];
+
+  // // Fetch item categories from backend
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/items/categories')
+  //     .then(response => response.json())
+  //     .then(data => setItemTypes(data))
+  //     .catch(error => console.error('Error fetching item categories:', error));
+  // }, []);
 
   // Refactored available items categorized by type
   const availableItems = {
@@ -64,9 +73,9 @@ const Body = ({ cartItems, setCartItems }) => {
     return spiceLevels;
   };
 
-  const [selectedQuantity, setSelectedQuantity] = useState({}); // Store selected quantity for each item
-  const [selectedSpiceLevel, setSelectedSpiceLevel] = useState({}); // Store selected quantity for each item
-  
+  const [selectedQuantity, setSelectedQuantity] = useState({});
+  const [selectedSpiceLevel, setSelectedSpiceLevel] = useState({});
+
   useEffect(() => {
     setSelectedQuantity(initializeQuantities());
   }, []);
@@ -74,7 +83,6 @@ const Body = ({ cartItems, setCartItems }) => {
   useEffect(() => {
     setSelectedSpiceLevel(initializeSpiceLevels());
   }, []);
-
 
   const handleSelectQuantity = (itemId, quantity) => {
     setSelectedQuantity((prevQuantities) => ({
@@ -90,16 +98,13 @@ const Body = ({ cartItems, setCartItems }) => {
     }));
   };
 
-  // State to track the selected item type
   const [selectedItemType, setSelectedItemType] = useState('all');
 
   // Filter items based on the selected type
   const getFilteredItems = () => {
     if (selectedItemType === 'all') {
-      // Flatten all items if 'All' is selected
       return Object.values(availableItems).flat();
     } else {
-      // Return items of the selected type
       return availableItems[selectedItemType] || [];
     }
   };
@@ -130,68 +135,65 @@ const Body = ({ cartItems, setCartItems }) => {
         {itemTypes.map((itemType) => (
           <Col key={itemType.id}>
             <Button
-                type="default" // Keep the default type
-                onClick={() => setSelectedItemType(itemType.id)}
-                style={{
+              type="default"
+              onClick={() => setSelectedItemType(itemType.id)}
+              style={{
                 width: '220px',
                 textAlign: 'center',
-                backgroundColor: selectedItemType === itemType.id ? '#0582f7' : 'inherit', // Green for selected button
-                color: selectedItemType === itemType.id ? '#fff' : 'inherit', // White text for selected button
-                borderColor: selectedItemType === itemType.id ? '#52c41a' : 'inherit', // Green border for selected button
-                }}
-                size="large"
+                backgroundColor: selectedItemType === itemType.id ? '#0582f7' : 'inherit',
+                color: selectedItemType === itemType.id ? '#fff' : 'inherit',
+                borderColor: selectedItemType === itemType.id ? '#52c41a' : 'inherit',
+              }}
+              size="large"
             >
-                {itemType.name}
+              {itemType.name}
             </Button>
           </Col>
         ))}
       </Row>
 
-      {/* Display available items based on the selected type */}
-
-      <Divider style={{borderColor: '#129bc4'}}>Available Items</Divider>
+      <Divider style={{ borderColor: '#129bc4' }}>Available Items</Divider>
       <Row gutter={[16, 16]} className="available-items">
         {filteredItems.map((item) => (
-          <Col key={item.id} xs={24} sm={12} md={8} lg={6}>  
-            <Card className="shadow-card" title={<div>{item.name} - <span style={{ color: 'black' }}> Price:${item.price}</span></div>} bordered={true}>
-                <div className="quantity-selector">
-                    {['0', '1', '2', '3', '4', '5', '+'].map((quantity) => (
-                        <div
-                        key={quantity}
-                        className={`quantity-circle ${selectedQuantity[item.id] === quantity ? 'selected' : ''}`}
-                        onClick={() => {handleSelectQuantity(item.id, quantity);addToCart(item)}}
-                        >
-                        {quantity}
-                        </div>
-                    ))}
-                </div>
-                <div className="quantity-selector">
-                    {['Mild', 'Medium', 'Hot'].map((spiceLevel) => (
-                        <div
-                        key={spiceLevel}
-                        className={`spicelevel-rounded ${selectedSpiceLevel[item.id] === spiceLevel ? 'selected' : ''}`}
-                        onClick={() => handleSpiceLevel(item.id, spiceLevel)}
-                        >
-                        {spiceLevel}
-                        </div>
-                    ))}
-                </div>
-                {/* Align Notes button to the right */}
-                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button icon={<FormOutlined />}>
-                    Notes
-                  </Button>
-                </div>
+          <Col key={item.id} xs={24} sm={12} md={8} lg={6}>
+            <Card className="shadow-card" title={<div>{item.name} - <span style={{ color: 'black' }}>Price: ${item.price}</span></div>} bordered={true}>
+              <div className="quantity-selector">
+                {['0', '1', '2', '3', '4', '5', '+'].map((quantity) => (
+                  <div
+                    key={quantity}
+                    className={`quantity-circle ${selectedQuantity[item.id] === quantity ? 'selected' : ''}`}
+                    onClick={() => {handleSelectQuantity(item.id, quantity); addToCart(item);}}
+                  >
+                    {quantity}
+                  </div>
+                ))}
+              </div>
+              <div className="quantity-selector">
+                {['Mild', 'Medium', 'Hot'].map((spiceLevel) => (
+                  <div
+                    key={spiceLevel}
+                    className={`spicelevel-rounded ${selectedSpiceLevel[item.id] === spiceLevel ? 'selected' : ''}`}
+                    onClick={() => handleSpiceLevel(item.id, spiceLevel)}
+                  >
+                    {spiceLevel}
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button icon={<FormOutlined />}>
+                  Notes
+                </Button>
+              </div>
             </Card>
           </Col>
         ))}
       </Row>
 
       <div className="checkout-button-container">
-          <Button type="primary" onClick={proceedToCheckout}>
-            Proceed to Checkout
-          </Button>
-        </div>
+        <Button type="primary" onClick={proceedToCheckout}>
+          Proceed to Checkout
+        </Button>
+      </div>
     </div>
   );
 };
