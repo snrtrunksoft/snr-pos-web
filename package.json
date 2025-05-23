@@ -1,7 +1,7 @@
 {
   "name": "snr-poc-web",
   "version": "0.1.0",
-  "main": "src/export.js",
+  "main": "src/exports.js",
   "private": false,
   "dependencies": {
     "@stripe/react-stripe-js": "^2.8.1",
