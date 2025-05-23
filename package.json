@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "babel src --out-dir dist --extensions \".js,.jsx\"",
+    "build": "babel src --out-dir dist --extensions \".js,.jsx\" && cp src/POSBody.css dist/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
