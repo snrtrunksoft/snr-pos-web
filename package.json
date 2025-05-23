@@ -1,7 +1,7 @@
 {
   "name": "snr-poc-web",
   "version": "0.1.0",
-  "main": "src/exports.js",
+  "main": "dist/exports.js",
   "private": false,
   "dependencies": {
     "@stripe/react-stripe-js": "^2.8.1",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "babel src --out-dir dist --extensions \".js,.jsx\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -41,5 +41,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1"
   }
 }
