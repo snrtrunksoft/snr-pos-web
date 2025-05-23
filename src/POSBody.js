@@ -5,7 +5,7 @@ import { FormOutlined } from '@ant-design/icons';
 import './POSBody.css';  // Import the CSS for styling
 
 const POSBody = ({ cartItems, setCartItems }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const [itemTypes, setItemTypes] = useState([]); // Set state for item categories
 
   // Define the item types for the horizontal grid
@@ -125,7 +125,7 @@ const POSBody = ({ cartItems, setCartItems }) => {
   };
 
   const proceedToCheckout = () => {
-    navigate('/checkout');
+    // navigate('/checkout');
   };
 
   return (
