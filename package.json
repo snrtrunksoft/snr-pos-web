@@ -4,13 +4,16 @@
   "main": "dist/exports.js",
   "private": false,
   "peerDependencies": {
-    "react-router-dom": "^6.26.2"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.2",
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
-    "@babel/preset-react": "^7.27.1"
+    "@babel/preset-react": "^7.27.1",
+    "react-router-dom": "^7.6.0"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^2.8.1",
