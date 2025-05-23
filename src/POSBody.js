@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Row, Col, Button, Card, Divider } from 'antd';
 import { FormOutlined } from '@ant-design/icons';
-import './Body.css';  // Import the CSS for styling
+import './POSBody.css';  // Import the CSS for styling
 
-const Body = ({ cartItems, setCartItems }) => {
+const POSBody = ({ cartItems, setCartItems }) => {
   const navigate = useNavigate();
   // const [itemTypes, setItemTypes] = useState([]); // Set state for item categories
 
@@ -198,4 +198,4 @@ const Body = ({ cartItems, setCartItems }) => {
   );
 };
 
-export default Body;
+export default POSBody;

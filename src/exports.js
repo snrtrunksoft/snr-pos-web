@@ -1,0 +1,1 @@
+export { POSBody } from './POSBody';
